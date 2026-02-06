@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Be My Valentine 💘</title>
+  <title>Be My Valentine 💙</title>
   <style>
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(135deg, #ffdee9, #b5fffc);
+      background: linear-gradient(135deg, #cce7ff, #e6f7ff);
       text-align: center;
       padding-top: 60px;
     }
@@ -18,11 +18,11 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
     img {
-      width: 180px;
+      width: 200px;
       margin-bottom: 20px;
     }
     h1 {
-      color: #ff4d6d;
+      color: #3b82f6;
     }
     button {
       font-size: 18px;
@@ -40,24 +40,39 @@
       background-color: #ff6b6b;
       color: white;
     }
+    .music {
+      background-color: #60a5fa;
+      color: white;
+      font-size: 14px;
+      padding: 8px 16px;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
-    <h1 id="question">Will you be my Valentine? 💖</h1>
+    <button class="music" onclick="playMusic()">Tap to play music 🎵</button>
+
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png" alt="Piplup">
+
+    <h1 id="question">Will you be my Valentine? 💙</h1>
+
     <button class="yes" onclick="sayYes()">Yes 💕</button>
     <button class="no" onclick="sayNo()">No 🙃</button>
   </div>
 
+  <audio id="bgMusic" loop>
+    <source src="https://vgmsite.com/soundtracks/pokemon-diamond-pearl/ztuapqik/101%20Twinleaf%20Town.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
     const questions = [
       "Are you sure? 🥺",
-      "Like… really sure? 😢",
-      "Pikachu is sad now 😭",
-      "This is your last chance 😶",
-      "Okay but what if I ask nicely? 💘"
+      "Piplup will cry 😭",
+      "Think again 💙",
+      "This feels like a yes 😌",
+      "Okay… last chance 🥹"
     ];
     let index = 0;
 
@@ -69,11 +84,15 @@
     function sayYes() {
       document.body.innerHTML = `
         <div style="padding-top:100px;">
-          <h1 style="color:#ff4d6d;">YAYYYYY 💕💍</h1>
-          <p style="font-size:22px;">Best Valentine ever 💖</p>
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" width="220">
+          <h1 style="color:#3b82f6;">YAYYYYY 💙💍</h1>
+          <p style="font-size:22px;">You just made Piplup the happiest 🐧💖</p>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png" width="240">
         </div>
       `;
+    }
+
+    function playMusic() {
+      document.getElementById("bgMusic").play();
     }
   </script>
 
