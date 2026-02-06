@@ -79,5 +79,80 @@
   <div class="card" id="card">
     <button class="music" onclick="playMusic()">Tap to play music 🎵</button>
 
-    <img src="https://raw.githubusercontent.com
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png" alt="Piplup">
 
+    <h1 id="question">Sam 💙 will you be my Valentine?</h1>
+
+    <button class="yes" onclick="sayYes()">Yes 💕</button>
+    <button class="no" id="noBtn" onclick="sayNo()">No 🙃</button>
+  </div>
+
+  <!-- Music -->
+  <audio id="bgMusic" loop>
+    <source src="https://vgmsite.com/soundtracks/pokemon-diamond-pearl/ztuapqik/101%20Twinleaf%20Town.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Piplup cry -->
+  <audio id="cry">
+    <source src="https://play.pokemonshowdown.com/audio/cries/piplup.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const questions = [
+      "Are you sure? 🥺",
+      "Piplup is crying 😭",
+      "That didn’t feel right 💙",
+      "Sam… think again 🥹",
+      "Okay but I won’t stop asking 😌"
+    ];
+    let index = 0;
+
+    const noBtn = document.getElementById("noBtn");
+    const cry = document.getElementById("cry");
+
+    function sayNo() {
+      document.getElementById("question").innerText = questions[index];
+      index = (index + 1) % questions.length;
+      cry.play();
+      moveNoButton();
+    }
+
+    function moveNoButton() {
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 120);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    function sayYes() {
+      document.body.innerHTML = `
+        <div style="padding-top:120px;">
+          <h1 style="color:#3b82f6;">💙 YAYYYYY SAM 💙</h1>
+          <p style="font-size:24px;">
+            You are and will always be my Valentine 💍💖
+          </p>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png" width="260">
+        </div>
+      `;
+    }
+
+    function playMusic() {
+      document.getElementById("bgMusic").play();
+    }
+
+    // Falling hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💙";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
