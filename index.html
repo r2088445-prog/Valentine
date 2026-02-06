@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be My Valentine 💘</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffdee9, #b5fffc);
+      text-align: center;
+      padding-top: 60px;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      display: inline-block;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    img {
+      width: 180px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #ff4d6d;
+    }
+    button {
+      font-size: 18px;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+    }
+    .yes {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .no {
+      background-color: #ff6b6b;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
+    <h1 id="question">Will you be my Valentine? 💖</h1>
+    <button class="yes" onclick="sayYes()">Yes 💕</button>
+    <button class="no" onclick="sayNo()">No 🙃</button>
+  </div>
+
+  <script>
+    const questions = [
+      "Are you sure? 🥺",
+      "Like… really sure? 😢",
+      "Pikachu is sad now 😭",
+      "This is your last chance 😶",
+      "Okay but what if I ask nicely? 💘"
+    ];
+    let index = 0;
+
+    function sayNo() {
+      document.getElementById("question").innerText = questions[index];
+      index = (index + 1) % questions.length;
+    }
+
+    function sayYes() {
+      document.body.innerHTML = `
+        <div style="padding-top:100px;">
+          <h1 style="color:#ff4d6d;">YAYYYYY 💕💍</h1>
+          <p style="font-size:22px;">Best Valentine ever 💖</p>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" width="220">
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
